@@ -1,7 +1,7 @@
 """Computing primes."""
 
 
-def sieve(n: int) -> list[int]:
+def sieve(n: int):
     """
     Compute all the primes up to (and possibly including) `n`.
 
@@ -15,6 +15,11 @@ def sieve(n: int) -> list[int]:
     candidates = list(range(2, n + 1))
     primes = []
 
-    # FIXME: fill out this bit
-
+    while len(candidates) > 0:
+        p = candidates[0]
+        primes.append(p)
+        candidates.remove(p)
+        for number in candidates:
+            if (number/p)%1 == 0:
+                candidates.remove(number)
     return primes
